@@ -1,0 +1,58 @@
+<html>
+<head>
+<style type="text/css">
+#container  { background: white; }
+#container {
+  width: 500px;
+  height: 200px;
+  overflow:hidden;
+  position: relative;
+}
+#content{
+  position: absolute;
+  top: 100%;
+  line-height: 16px;
+  font-family: 'Typewriter';
+}
+
+@font-face {
+	font-family: 'Typewriter';
+	src: url('typewriter.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+</style>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+<script src="teletypewidget.js" ></script>
+<button id="rebuild">run</button>
+<div id="container">
+  <div id="content">
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at dapibus nisi. Morbi non ante a eros lobortis dictum. Ut eu eleifend erat, non dapibus tellus. Donec tristique nulla et eros vulputate consequat. Morbi faucibus, nulla quis aliquam vestibulum, sem ex dictum nunc, eget scelerisque magna justo eget nunc. Vivamus dictum leo sem, eget accumsan lorem malesuada id. Nunc feugiat arcu molestie felis gravida pharetra. Fusce aliquet gravida magna, et gravida turpis ullamcorper id. Curabitur id lobortis nisl, sed faucibus ante. Aliquam eget venenatis neque. Duis a tellus dolor. Nunc efficitur pharetra turpis ac interdum. Vestibulum efficitur lacinia dui sed fringilla. Integer convallis ultricies cursus. Aliquam eu arcu felis.
+    </p><p>
+Morbi in massa tincidunt, sollicitudin diam at, vestibulum urna. Proin eget auctor enim, id porta justo. Suspendisse diam turpis, tincidunt at aliquam aliquet, posuere vel risus. Aliquam sit amet dapibus elit, in pellentesque eros. Quisque lacus turpis, faucibus sed suscipit quis, luctus et leo. Morbi semper elit vel molestie finibus. Sed venenatis nunc ipsum, in lobortis libero euismod vel. Aenean id urna arcu. Etiam a leo quis tortor vestibulum egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum lacinia sodales risus, eget commodo neque hendrerit sed. Pellentesque et erat sed massa facilisis finibus.
+
+    </p><p>
+Aliquam bibendum pharetra posuere. Aliquam posuere justo eget dolor ornare convallis. Mauris in nisi nibh. Proin tincidunt, nulla at maximus mattis, urna leo tristique nunc, at tristique nunc quam id nisi. Morbi vitae sapien lacus. Donec dolor massa, aliquam non augue at, rutrum molestie risus. Nulla facilisi. Sed quis eros consectetur, sollicitudin orci vel, auctor quam. Maecenas eget velit eget dui vulputate consequat. Suspendisse suscipit eleifend libero ut convallis. Fusce ultrices tristique elit et suscipit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed pretium vulputate ligula, sed ornare eros euismod et.
+
+    </p><p>
+Duis tellus mi, posuere in nulla quis, varius varius sapien. Nunc vulputate cursus neque, et pulvinar lacus tincidunt at. Nulla non accumsan elit, at tristique lorem. Maecenas lectus arcu, molestie sit amet vestibulum nec, pulvinar a eros. Donec sodales, libero a semper faucibus, nulla elit aliquet nisi, vel sodales mi purus eget dui. Sed eget lectus dapibus lorem mattis faucibus ac in sem. Morbi at elit quis lacus cursus consectetur.
+
+    </p><p>
+Pellentesque ut diam et sem vestibulum ornare ac id est. Proin in semper orci, eget fringilla elit. Mauris non gravida ligula, egestas hendrerit neque. Sed nisl nulla, tristique in felis quis, pellentesque rhoncus velit. Vestibulum vulputate eros vitae dolor iaculis, sed tristique libero sollicitudin. Cras convallis turpis felis. Aliquam bibendum, ex ut bibendum pretium, ex turpis tristique dolor, id fermentum mauris quam nec magna. Aliquam ut bibendum purus. Aenean mattis nisi vel aliquet tincidunt. Proin et malesuada nulla, sit amet consectetur nibh. Curabitur pretium sem id urna varius, a consequat turpis facilisis. Aliquam dapibus erat libero, et feugiat massa lacinia sed.
+    </p>
+    <p>--- THE END ---</p>
+  </div>
+</div>
+<div id="logger"></div>
+<script>
+var audio = new Audio('teletype.mp3');
+$('#rebuild').click(function () {
+    $('#content').teletype().done(function () {
+    }).progress(function () {
+      audio.play();
+    });
+});
+</script>
+</body>
+</html>
