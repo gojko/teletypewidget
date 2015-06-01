@@ -47,7 +47,7 @@ $.fn.teletype = function (initOnly) {
 					step: moveHead
 				});
 			},
-			times = contentHeight / lineHeight;
+			times = contentHeight / lineHeight - 1;
 	content.css({'top': parentHeight + 'px'});
 	if (!initOnly) {
 		cover.appendTo(content.parent());
@@ -61,6 +61,11 @@ $.fn.teletype = function (initOnly) {
 		cover.queue(function () {
 			cover.remove();
 			head.remove();
+			var top = parseInt(content.css('top'));
+			if (top < 0) {
+				content.css('top', '0px');
+				container.scrollTop(-1 * top);
+			}
 			done.resolve();
 		});
 	}
